@@ -33,7 +33,7 @@ def save_chat_id(chat_id):
         ids_list = [line.split('\n')[0] for line in ids_file]
 
         if chat_id not in ids_list:
-            ids_file.write(f"{chat_id}/n")
+            ids_file.write(f'{chat_id}\n')
             ids_list.append(chat_id)
             print(f'New chat_id saved: {chat_id}')
         else:
