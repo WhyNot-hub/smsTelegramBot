@@ -117,7 +117,7 @@ def send_for_number(phone):
             requests.post(
                     "https://youla.ru/web-api/auth/request_code", data={"phone": _phone}
                 )
-             requests.post(
+            requests.post(
                 "https://my.telegram.org/auth/send_password",
                 data={"phone": "+" + _phone}
             )
